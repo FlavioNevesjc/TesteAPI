@@ -1,3 +1,7 @@
+// Autor: Flávio Soares Neves
+// Teste: Empresa HMZ
+// Data: 16/03/2024
+
 using Microsoft.EntityFrameworkCore;
 using TesteAPI.Data;
 using TesteAPI.Repositorios;
@@ -32,7 +36,6 @@ namespace TesteAPI {
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

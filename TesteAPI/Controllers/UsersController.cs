@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TesteAPI.Models;
 using TesteAPI.Repositorios.Interfaces;
 
@@ -16,13 +15,20 @@ namespace TesteAPI.Controllers
             _userRepositorio = usersRepositorio;
         }
 
+        //Endpoint para lista de usuários
         [HttpGet]
         public async Task<ActionResult<List<UserModel>>> BuscarTodosUsuario(int page, int per_page)
         {
-                List<UserModel> users = await _userRepositorio.BuscarTodosUsuarios(page, per_page);
+            if (per_page == 0)
+            {
+                per_page = 15;
+            }
+           
+            List<UserModel> users = await _userRepositorio.BuscarTodosUsuarios(page, per_page);
             return Ok(users);
         }
 
+        //Endpoint usuário por id
         [HttpGet("{id}")]
         public async Task<ActionResult<UserModel>> BuscarPorId(int id)
         {
@@ -30,6 +36,7 @@ namespace TesteAPI.Controllers
             return Ok(user);
         }
 
+        //Endpoint atualizar usuário por id
         [HttpPut("{id}")]
         public async Task<ActionResult<UserModel>> AtualizarUsuario([FromBody] UserModel userModel, int id)
         {
@@ -38,6 +45,7 @@ namespace TesteAPI.Controllers
             return Ok(user);
         }
 
+        //Endpoint deletar usuário por id
         [HttpDelete("{id}")]
         public async Task<ActionResult<UserModel>> ApagarUsuario(int id)
         {
@@ -45,13 +53,12 @@ namespace TesteAPI.Controllers
             return Ok(delete);
         }
 
-        [HttpPost]
+//      EndPoint criado para realizar alimentação do banco de dados via API
+/*        [HttpPost]
         public async Task<ActionResult<UserModel>> CadastrarUsuario([FromBody] UserModel userModel)
         {
             UserModel user = await _userRepositorio.Cadastro(userModel);
             return Ok(user);
-        }
-
-
+        }*/
     }
 }

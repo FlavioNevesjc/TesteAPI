@@ -8,6 +8,8 @@ namespace TesteAPI.Repositorios.Interfaces
         Task<UserModel> BuscarPorId(int id);
         Task<UserModel> Atualizar(UserModel user, int id);
         Task<bool> Apagar(int id);
-        Task<UserModel> Cadastro(UserModel user);
+        
+//      Criado para realizar alimentação do banco de dados via API
+//        Task<UserModel> Cadastro(UserModel user);
     }
 }

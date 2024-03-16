@@ -57,11 +57,12 @@ namespace TesteAPI.Repositorios
             return true;
         }
 
-        public async Task<UserModel> Cadastro(UserModel user)
+//      Criado para realizar alimentação do banco de dados via API
+/*        public async Task<UserModel> Cadastro(UserModel user)
         {
             await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
             return user;
-        }
+        }*/
     }
 }

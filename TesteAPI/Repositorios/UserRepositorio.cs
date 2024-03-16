@@ -22,7 +22,7 @@ namespace TesteAPI.Repositorios
         {
             return await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
-
+        
         public async Task<UserModel> Atualizar(UserModel users, int id)
         {
             UserModel userId = await BuscarPorId(id);
@@ -50,7 +50,7 @@ namespace TesteAPI.Repositorios
             {
                 throw new Exception($"Usuario para o ID: {id} não foi encontrado no banco de dados.");
             }
-
+            
             _dbContext.Users.Remove(userId);
             await _dbContext.SaveChangesAsync();
 

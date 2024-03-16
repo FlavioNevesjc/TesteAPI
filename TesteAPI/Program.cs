@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using TesteAPI.Data;
 using TesteAPI.Repositorios;
 using TesteAPI.Repositorios.Interfaces;

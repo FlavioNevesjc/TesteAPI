@@ -10,12 +10,12 @@ namespace TesteAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUsersRepositorio _userRepositorio;
-        
+
         public UsersController(IUsersRepositorio usersRepositorio)
         {
-            _userRepositorio = usersRepositorio;   
+            _userRepositorio = usersRepositorio;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<List<UserModel>>> BuscarTodosUsuario(int page, int per_page)
         {

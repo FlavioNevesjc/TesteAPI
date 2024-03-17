@@ -4,7 +4,7 @@ using TesteAPI.Repositorios.Interfaces;
 
 namespace TesteAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -53,12 +53,12 @@ namespace TesteAPI.Controllers
             return Ok(delete);
         }
 
-//      EndPoint criado para realizar alimentação do banco de dados via API
-/*        [HttpPost]
-        public async Task<ActionResult<UserModel>> CadastrarUsuario([FromBody] UserModel userModel)
-        {
-            UserModel user = await _userRepositorio.Cadastro(userModel);
-            return Ok(user);
-        }*/
+        //      EndPoint criado para realizar alimentação do banco de dados via API
+        /*        [HttpPost]
+                public async Task<ActionResult<UserModel>> CadastrarUsuario([FromBody] UserModel userModel)
+                {
+                    UserModel user = await _userRepositorio.Cadastro(userModel);
+                    return Ok(user);
+                }*/        
     }
 }

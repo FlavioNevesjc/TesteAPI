@@ -3,9 +3,11 @@
 // Data: 16/03/2024
 
 using Microsoft.EntityFrameworkCore;
+using TesteAPI.Controllers;
 using TesteAPI.Data;
 using TesteAPI.Repositorios;
 using TesteAPI.Repositorios.Interfaces;
+using TesteAPI.ViewModels;
 
 namespace TesteAPI {
     public class Program {
@@ -18,13 +20,13 @@ namespace TesteAPI {
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+           
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<SistemaDBContex>(
                     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
                 );
 
             builder.Services.AddScoped<IUsersRepositorio, UserRepositorio>();
-            
+                        
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,7 +34,7 @@ namespace TesteAPI {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

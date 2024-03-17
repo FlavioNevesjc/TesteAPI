@@ -6,7 +6,7 @@ using TesteAPI.ViewModels;
 
 namespace TesteAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/login")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -28,20 +28,22 @@ namespace TesteAPI.Controllers
             }
 
             var user = await context.Users.FirstOrDefaultAsync(x => x.Username == login.Username);
-            var pass = await context.Users.FirstOrDefaultAsync(x => x.Password == login.Password);
-            var email = await context.Users.FirstOrDefaultAsync(x => x.Email == login.Email);
-            if (user == null && pass == null && email == null)
+
+            if (user == null)
             {
                 return BadRequest(new { mensagem = "Falha no login" });
             }
             else
             {
-                if (user.Username == login.Username && user.Password == login.Password && user.Email == login.Email)
+                if (user.Username == login.Username && user.Password == login.Password)
                 {
                     return Ok(new { token = "Login efetuado com sucesso" });
                 }
+                else
+                {
+                    return BadRequest(new { mensagem = "Falha no login" });
+                }
             }
-            return BadRequest(new { mensagem = "Falha no login" });
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Autor: Flávio Soares Neves
+// Teste: Empresa HMZ
+// Data: 16/03/2024
+
+using Microsoft.EntityFrameworkCore;
 using TesteAPI.Data.Map;
 using TesteAPI.Models;
 

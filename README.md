@@ -40,4 +40,4 @@ PM> Add-Migration IniciarDB -Context SistemaDBContex <br>
 PM> Update-Database -Context SistemaDBContex <br>
 <br>
 <br>
-Na imagem do Front End, a tela de login está informando os campos usuario e password para validar a senha. Com isto não validei a senha utilizando o campo e-mail, mas deixei disponível o campo como está na API Fake, só que validação.
+Na imagem do Front End, a tela de login está informando os campos usuario e password para validar o login. Com isto validei a senha utilizando o campo e-mail e senha, mas deixei disponível o campo username como está na API Fake, caso seja necessario utilizar este campo futuramente.
